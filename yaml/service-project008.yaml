@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: project008
+
+spec:
+  selector:
+    app: project008
+
+  ports:
+    - name: http
+      port: 8080
+  type: NodePort

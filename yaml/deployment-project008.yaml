@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project008
+spec:
+  selector:
+    matchLabels:
+      app: project008
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: project008
+    spec:
+      containers:
+      - name: project008
+        image: sidartasilva/project008:latest
+        env:
+        - name: HOST
+          valueFrom:
+            configMapKeyRef:
+              name: global-config
+              key: loadbalancer.host
+
